@@ -1,0 +1,24 @@
+{
+  "name": "react-project",
+  "version": "1.0.0",
+  "description": "This is react-project by tutor Aksay Saini and student Sahil Shaikh.",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohammedSahil-Shaikh/react-project.git"
+  },
+  "keywords": [
+    "first-react-project"
+  ],
+  "author": "Sahil Shaikh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohammedSahil-Shaikh/react-project/issues"
+  },
+  "homepage": "https://github.com/MohammedSahil-Shaikh/react-project#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}
