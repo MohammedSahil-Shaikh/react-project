@@ -90,3 +90,36 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+.shimmer-cards-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.shimmer-card {
+    width: 250px;
+    height: 300px;
+    background-color: #f0f0f0;
+}
+
+.login-logout-btn {
+    padding: 5px;
+    width: 70px;
+    height: 35px;
+    align-self: center;
+    background-color: lightblue;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 7px;
+}
+
+.login-logout-btn:hover {
+    background-color: white;
+    color: lightblue;
+    border: 1px solid lightblue;
+}
