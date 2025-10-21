@@ -1,0 +1,92 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.logo {
+    height: 100px;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.nav-items ul {
+    display: flex;
+    margin-right: 20px;
+    list-style-type: none;
+}
+
+.nav-items ul li {
+    padding: 10px;
+    margin: 5px;
+    font-size: 22px;
+}
+
+.search {
+    font-size: 22 px;
+    padding: 15px 10px;
+}
+
+.app-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.res-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* <-- centers cards horizontally */
+    gap: 15px;
+    /* optional, adds even spacing between cards */
+    width: 100%;
+    /* optional, so it doesn’t shrink weirdly */
+    max-width: 1200px;
+    /* keeps it centered and neat on large screens */
+}
+
+.res-card {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    /* height: 300px; */
+    width: 250px;
+    margin: 5px;
+    padding: 7px 7px 20px 7px;
+    /* border: 1px solid black; */
+    background-color: #f0f0f0;
+    border-radius: 13px;
+    /* transition: width 0.5s ; */
+}
+
+.res-card:hover {
+    width: 252px;
+    cursor: pointer;
+}
+
+.res-card h3,
+.res-card h4,
+.res-card p {
+    margin-bottom: -10px;
+    /* padding: 3px; */
+}
+
+.food-picture {
+    /* height: 190px; */
+    /* width: 100%; */
+    border-radius: 7px;
+}
+
+.res-address {
+    display: flex;
+    justify-content: space-between;
+}
