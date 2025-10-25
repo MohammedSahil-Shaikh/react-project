@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import dessertsData from '../utils/mockData';
 import { useEffect, useState } from "react";
 import ShimmerUI from './ShimmerUI';
+import { Link } from "react-router-dom";
 
 const Body = () => {
 
@@ -12,14 +13,17 @@ const Body = () => {
     const fetchData = async () => {
         try {
             // setTimeout(async () => {
-            const response = await fetch('https://api.allorigins.win/raw?url=https://raw.githubusercontent.com/namastedev/namaste-react/refs/heads/main/swiggy-api');
-            // console.log(response);
+            const response = await fetch('http://localhost:7143/getAllRestaurantCards');
+            console.log('my server response: ', response);
 
             // Parse JSON directly
             const data = await response.json();  // <-- this reads and parses the body
-            // console.log('data: ', data);
-            setData(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-            setFilteredData(data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+            console.log('data: ', data);
+            setData(data);
+            setFilteredData(data);
+            // setData(data?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            // setFilteredData(data?.card?.card?.gridElements?.infoWithStyle?.restaurants);
             // }, 5000);
 
         } catch (error) {
@@ -43,7 +47,7 @@ const Body = () => {
     const handleSearch = () => {
         const searchResults = data.filter(restaurant => restaurant.info.name.toLowerCase().includes(search.toLowerCase()));
         if (!search)
-           setFilteredData(data); // setData(dessertsData);  
+            setFilteredData(data); // setData(dessertsData);  
         else
             setFilteredData(searchResults);
     }
@@ -55,14 +59,16 @@ const Body = () => {
             <div className="app-body">
                 <div className="search">
                     <form>
-                        <input type="text" name="search" onChange={handleOnChange} value={search}/>
+                        <input type="text" name="search" onChange={handleOnChange} value={search} />
                         <button type="button" onClick={handleSearch} value={search}>Search</button>
                     </form>
                 </div>
                 <div className="res-container">
                     {
                         filteredData.map(restaurant => (
-                            <RestaurantCard key={restaurant?.info?.id} dessert={restaurant} />
+                            <Link className="res-card-item" key={restaurant?.info?.id} to={`/restaurant/${restaurant?.info?.id}`}>
+                                <RestaurantCard dessert={restaurant} />
+                            </Link>
                         ))
                     }
                 </div>

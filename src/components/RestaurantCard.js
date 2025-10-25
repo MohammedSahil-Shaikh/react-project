@@ -2,8 +2,6 @@ import  CDN_URL  from '../utils/constants';
 // import  * as entire  from '../utils/constants';
 
 const RestaurantCard = (props) => {
-
-    // console.log('entire: ', entire);
     
     const { name, cloudinaryImageId, cuisines, areaName, locality, costForTwo, avgRating, sla } = props?.dessert?.info;
 

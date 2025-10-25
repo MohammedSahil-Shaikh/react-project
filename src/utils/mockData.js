@@ -928,4 +928,4 @@ const dessertsData = [
     }
 ]
 
-export default dessertsData
+export default dessertsData;
