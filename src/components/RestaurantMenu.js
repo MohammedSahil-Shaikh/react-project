@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ShimmerUI from "./ShimmerUI";
+import useRestaurantMenu from "../utils/hooks/useRestaurantMenu";
 
 const ResturantMenu = () => {
 
-    const [menu, setMenu] = useState();
+    // const [menu, setMenu] = useState();
     const param = useParams();
     const { restaurantId } = param;
 
-    const fetchRestaurantMenuData = async () => {
-        const response = await fetch(`http://localhost:7143/getRestaurantMenu?restaurantId=${restaurantId}`);
-        const restaurantMenu = await response.json();
-        setMenu(restaurantMenu)
-    };
+    const menu = useRestaurantMenu(restaurantId);
+
+    // const fetchRestaurantMenuData = async () => {
+    //     const response = await fetch(`http://localhost:7143/getRestaurantMenu?restaurantId=${restaurantId}`);
+    //     const restaurantMenu = await response.json();
+    //     setMenu(restaurantMenu)
+    // };
 
     // const fetchRestaurantData = async () => {
 
@@ -40,18 +44,22 @@ const ResturantMenu = () => {
     //     // setRestaurantDetails(restuarantJson);
     // }
 
-    useEffect(() => {
-        fetchRestaurantMenuData();
-    }, [])
+    // useEffect(() => {
+    //     fetchRestaurantMenuData();
+    // }, [])
 
     return (
-        <div>
-            <h1>{menu?.name || 'Data Not Available. Please Check Again Later'} </h1>
-            <h2>Menu</h2>
-            <h3>Item 1</h3>
-            <h3>Item 2</h3>
-            <h3>Item 3</h3>
-        </div>
+        !menu ? (
+            <ShimmerUI />
+        ) : (
+            <div>
+                <h1>{menu?.name || 'Data Not Available. Please Check Again Later'} </h1>
+                <h2>Menu</h2>
+                <h3>Item 1</h3>
+                <h3>Item 2</h3>
+                <h3>Item 3</h3>
+            </div>
+        )
     )
 }
 
